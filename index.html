@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="referrer" content="origin-when-cross-origin">
+  <title>START YOUR JOURNEY NOW!</title>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" as="style" onload="this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap"></noscript>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    :root {
+      --hero-bg: linear-gradient(135deg, #006666 0%, #003087 50%, #FFFFFF 100%);
+      --cta-bg: #006666;
+      --cta-text: #FFFFFF;
+      --cta-border: #003087;
+      --secondary-cta-bg: #003087;
+      --secondary-cta-text: #FFFFFF;
+      --secondary-cta-border: #006666;
+      --body-bg: #F9FAFB;
+      --footer-bg: #FFFFFF;
+      --footer-text: #003087;
+      --footer-link: #006666;
+      --badge-bg: #006666;
+      --badge-text: #FFFFFF;
+      --pulse-text: #FBBF24;
+      --sticky-bg: rgba(255,255,255,0.9);
+      --sticky-shadow: rgba(0,0,0,0.2);
+    }
+    .theme-orange-red-white {
+      --hero-bg: linear-gradient(135deg, #F97316 0%, #B91C1C 50%, #FFFFFF 100%);
+      --cta-bg: #F97316;
+      --cta-text: #FFFFFF;
+      --cta-border: #B91C1C;
+      --secondary-cta-bg: #B91C1C;
+      --secondary-cta-text: #FFFFFF;
+      --secondary-cta-border: #F97316;
+      --body-bg: #F9FAFB;
+      --footer-bg: #FFFFFF;
+      --footer-text: #B91C1C;
+      --footer-link: #F97316;
+      --badge-bg: #F97316;
+      --badge-text: #FFFFFF;
+      --pulse-text: #FBBF24;
+      --sticky-bg: rgba(255,255,255,0.9);
+      --sticky-shadow: rgba(185,28,28,0.3);
+    }
+    .theme-dark-blue-cyan-silver {
+      --hero-bg: linear-gradient(135deg, #1E3A8A 0%, #06B6D4 50%, #D1D5DB 100%);
+      --cta-bg: #1E3A8A;
+      --cta-text: #FFFFFF;
+      --cta-border: #06B6D4;
+      --secondary-cta-bg: #06B6D4;
+      --secondary-cta-text: #1F2937;
+      --secondary-cta-border: #1E3A8A;
+      --body-bg: #D1D5DB;
+      --footer-bg: #D1D5DB;
+      --footer-text: #1E3A8A;
+      --footer-link: #06B6D4;
+      --badge-bg: #06B6D4;
+      --badge-text: #FFFFFF;
+      --pulse-text: #FBBF24;
+      --sticky-bg: rgba(209,213,219,0.9);
+      --sticky-shadow: rgba(6,182,212,0.3);
+    }
+    body {
+      font-family: 'Poppins', sans-serif;
+      display: flex;
+      flex-direction: column;
+      min-height: 100dvh;
+      height: -webkit-fill-available;
+      margin: 0;
+      background: var(--body-bg);
+      width: 100vw;
+      -webkit-text-size-adjust: 100%;
+    }
+    .hero-bg {
+      position: relative;
+      background: var(--hero-bg);
+      min-height: calc(100vh - 5rem);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #FFFFFF;
+      text-align: center;
+      padding-bottom: env(safe-area-inset-bottom);
+    }
+    .theme-orange-red-white .hero-bg,
+    .theme-dark-blue-cyan-silver .hero-bg {
+      border: 1px solid var(--cta-border);
+      box-shadow: 0 0 10px var(--sticky-shadow);
+    }
+    .hero-bg::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.4);
+      z-index: 1;
+    }
+    .hero-bg > * {
+      position: relative;
+      z-index: 2;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .cta-button, .secondary-cta {
+      font-weight: 700;
+      border-radius: 9999px;
+      transition: transform 0.2s ease-in-out;
+      display: block;
+      margin: 0 auto 1rem auto;
+    }
+    .cta-button {
+      background: var(--cta-bg);
+      color: var(--cta-text);
+      font-size: 2rem;
+      padding: 1.5rem 3rem;
+      border: 3px solid var(--cta-border);
+      box-shadow: 0 8px 12px var(--sticky-shadow);
+    }
+    .cta-button:hover {
+      transform: scale(1.05);
+      animation: bounce 0.6s ease-in-out infinite;
+    }
+    .secondary-cta {
+      background: var(--secondary-cta-bg);
+      color: var(--secondary-cta-text);
+      font-size: 1.5rem;
+      padding: 1rem 2rem;
+      border: 2px solid var(--secondary-cta-border);
+      box-shadow: 0 6px 10px var(--sticky-shadow);
+    }
+    .secondary-cta:hover {
+      transform: scale(1.05);
+      animation: bounce 0.6s ease-in-out infinite;
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    .badge {
+      background: var(--badge-bg);
+      color: var(--badge-text);
+      font-size: 0.9rem;
+      font-weight: 700;
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      display: inline-block;
+      margin-bottom: 1rem;
+    }
+    .pulse {
+      animation: pulse 2s infinite;
+      color: var(--pulse-text);
+      font-weight: 700;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+    footer {
+      background: var(--footer-bg);
+      width: 100%;
+      padding: 1rem 0;
+      flex-shrink: 0;
+    }
+    footer p {
+      color: var(--footer-text);
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+    footer a {
+      color: var(--footer-link);
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+    .sticky-cta {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: var(--sticky-bg);
+      padding: 0.5rem;
+      box-shadow: 0 -2px 5px var(--sticky-shadow);
+      z-index: 50;
+      padding-bottom: env(safe-area-inset-bottom);
+    }
+    .hidden-cta {
+      display: none;
+    }
+    .honeypot {
+      display: none;
+    }
+    .sticky-cta .cta-button,
+    .sticky-cta .secondary-cta {
+      font-size: 1.2rem;
+      padding: 0.8rem 1.2rem;
+      border-width: 2px;
+      width: 100%;
+      max-width: 95%;
+      margin: 0 auto;
+      border-radius: 9999px;
+    }
+    @media (min-width: 640px) {
+      .sticky-cta { display: none !important; }
+    }
+    .theme-orange-red-white .hero-bg p:not(.pulse),
+    .theme-dark-blue-cyan-silver .hero-bg p:not(.pulse) {
+      color: #D1D5DB;
+    }
+  </style>
+</head>
+<body>
+  <section class="hero-bg">
+    <div class="container mx-auto px-4 text-center flex flex-col justify-center items-center h-full">
+      <h1 class="text-3xl md:text-4xl font-bold mb-4 drop-shadow-lg">📝💰 Earn Rewards with Paid Surveys</h1>
+      <span class="badge">🔥 Trending Paid Survey Opportunities</span>
+      <p class="text-lg md:text-xl mb-6 max-w-2xl">Take surveys anytime, anywhere with your phone. Cash out weekly in your currency. No experience needed – easy to start!</p>
+      <button id="applyNow" class="cta-button" aria-label="Start paid surveys">👉 Start Paid Surveys Today</button>
+      <button id="moreOpportunities" class="secondary-cta" aria-label="Explore more survey options">🔍 Explore More Survey Options</button>
+      <input type="text" id="honeypot" class="honeypot" name="bot_field">
+      <p class="pulse text-yellow-400 font-bold mt-4">⏳ Spots are limited – Join before registration closes!</p>
+    </div>
+  </section>
+
+  <div class="sticky-cta sm:hidden flex flex-col space-y-2 text-center">
+    <button id="stickyApplyNow" class="cta-button">💸 Join Free – Start Surveys Now</button>
+    <button id="stickyMore" class="secondary-cta">🔎 See More Survey Programs</button>
+  </div>
+
+  <footer>
+    <div class="container mx-auto px-4 text-center">
+      <p>© 2025 Earn Weekly Online</p>
+      <a href="https://malawiansadsversion3.blogspot.com/" target="_blank" class="underline text-sm mt-2">Privacy Policy</a>
+    </div>
+  </footer>
+
+  <script>
+    // ✅ YOUR REAL OFFER URL (adult call - offer 34313)
+    const OFFER_URL = "https://www.wineisblue.support/click?offer_id=32065&pub_id=278557&pub_click_id={click_id}&site={subid}&pub_sub_id={sub_subid}";
+
+    function proceedToOffer(buttonId) {
+      const honeypot = document.getElementById('honeypot');
+      if (honeypot && honeypot.value !== '') return; // bot trap
+
+      const btn = document.getElementById(buttonId);
+      if (btn) btn.setAttribute('aria-busy', 'true');
+
+      // Open in new tab (safe)
+      setTimeout(() => {
+        window.open(OFFER_URL, '_blank', 'noopener,noreferrer');
+        if (btn) btn.setAttribute('aria-busy', 'false');
+      }, 300);
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      // Theme
+      if (!sessionStorage.getItem('theme')) {
+        const themes = ['turquoise-navy-white', 'orange-red-white', 'dark-blue-cyan-silver'];
+        sessionStorage.setItem('theme', themes[Math.floor(Math.random() * themes.length)]);
+      }
+      document.body.classList.add(`theme-${sessionStorage.getItem('theme')}`);
+
+      // Buttons
+      ['applyNow', 'moreOpportunities', 'stickyApplyNow', 'stickyMore'].forEach(id => {
+        const btn = document.getElementById(id);
+        if (btn) btn.addEventListener('click', () => proceedToOffer(id));
+      });
+    });
+  </script>
+</body>
+</html>
